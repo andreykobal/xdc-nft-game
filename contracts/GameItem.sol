@@ -1,4 +1,4 @@
-//SPDX-License-Identifier: Unlicense
+// SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
@@ -218,6 +218,8 @@ contract GameItem is ERC721URIStorage, ContextMixin, NativeMetaTransaction, Owna
     Counters.Counter private _tokenIds;
     uint256 public mintingFee = 0.5 ether; // 0.5 ETH in Wei
 
+    mapping(address => uint256) private _balances;
+
     constructor(string memory name_, string memory symbol_) ERC721(name_, symbol_) {
         _initializeEIP712(name_);
     }
@@ -251,7 +253,13 @@ contract GameItem is ERC721URIStorage, ContextMixin, NativeMetaTransaction, Owna
         uint256 newItemId = _tokenIds.current();
         _mint(msg.sender, newItemId);
         _setTokenURI(newItemId, tokenURI);
+
+        _balances[msg.sender] += 1;
+
         return newItemId;
     }
-}
 
+    function getBalance(address wallet) public view returns (uint256) {
+        return _balances[wallet];
+    }
+}

@@ -5,7 +5,7 @@ const NUM_ITEMS = 1;
 async function main() {
 
       const GameItem = await hre.ethers.getContractFactory("GameItem");
-      const gameItem = await GameItem.attach('0x693984165233F42fC5CB2aE405ea4D465F8bCc36')
+      const gameItem = await GameItem.attach('0xca9785544566C10B83dF3e49dcc2BbE8EB203138')
 
       for (var i = 1; i <= NUM_ITEMS; i++) {
             await gameItem.mintItem(`https://bafkreiczapdwomdlotjqt4yaojyizlgarn4kq57smi3ptkwn5lug5yz7yu.ipfs.nftstorage.link/`, {value: hre.ethers.utils.parseEther("0.5")});
