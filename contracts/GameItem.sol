@@ -213,18 +213,12 @@ contract NativeMetaTransaction is EIP712Base {
     }
 }
 
-contract GameItem is
-    ERC721URIStorage,
-    ContextMixin,
-    NativeMetaTransaction,
-    Ownable
-{
+contract GameItem is ERC721URIStorage, ContextMixin, NativeMetaTransaction, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
+    uint256 public mintingFee = 0.5 ether; // 0.5 ETH in Wei
 
-    constructor(string memory name_, string memory symbol_)
-        ERC721(name_, symbol_)
-    {
+    constructor(string memory name_, string memory symbol_) ERC721(name_, symbol_) {
         _initializeEIP712(name_);
     }
 
@@ -233,16 +227,10 @@ contract GameItem is
         return "https://bafkreib4ff55r2vobbxysuu2oqipefsploizfcgamvmhxmxil4qlwyj2kq.ipfs.nftstorage.link/";
     }
 
-    /**
-     * This is used instead of msg.sender as transactions won't be sent by the original token owner, but by OpenSea.
-     */
     function _msgSender() internal view override returns (address sender) {
         return ContextMixin.msgSender();
     }
 
-    /**
-     * As another option for supporting trading without requiring meta transactions, override isApprovedForAll to whitelist OpenSea proxy accounts on Matic
-     */
     function isApprovedForAll(address _owner, address _operator)
         public
         view
@@ -256,15 +244,14 @@ contract GameItem is
         return ERC721.isApprovedForAll(_owner, _operator);
     }
 
-    function mintItem(address player, string memory tokenURI)
-        public
-        onlyOwner
-        returns (uint256)
-    {
+    function mintItem(string memory tokenURI) public payable returns (uint256) {
+        require(msg.value >= mintingFee, "Insufficient ETH sent for minting");
+
         _tokenIds.increment();
         uint256 newItemId = _tokenIds.current();
-        _mint(player, newItemId);
+        _mint(msg.sender, newItemId);
         _setTokenURI(newItemId, tokenURI);
         return newItemId;
     }
 }
+
