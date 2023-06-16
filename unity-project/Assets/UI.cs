@@ -22,9 +22,9 @@ public class UI : MonoBehaviour
     private void Start()
     {
         // Begin checking NFT balances on start
-        checkNFTOwnership.CheckNFTBalance("0xca9785544566C10B83dF3e49dcc2BbE8EB203138", 0);
-        checkNFTOwnership.CheckNFTBalance("0x3084bfcE8877DB2D7C5A60A170649590b65c6D20", 1);
-        checkNFTOwnership.CheckNFTBalance("0x44E6A9A038d78dE2a3Dea7B9D5a3767A9BE67Ce7", 2);
+        checkNFTOwnership.CheckNFTBalance("0x6d0ddf5542cD11B9ee31c8974dD8106a25c3A192", 0);
+        checkNFTOwnership.CheckNFTBalance("0x9B8B3f0191a6f607f7b6df35Eb11Bd972Fb238A4", 1);
+        checkNFTOwnership.CheckNFTBalance("0x3da421b005d15B6dCDDd7d2bd1c9CC1876638cf7", 2);
     }
 
     private void OnEnable()
@@ -57,17 +57,28 @@ public class UI : MonoBehaviour
 
     public void UpdateButtonLabel(int avatarIndex, string text)
     {
+        Button button = GetButtonForAvatarIndex(avatarIndex);
+        button.text = text;
+
+         if (text == "Buy 0.5 $MNT")
+        {
+            // Set the background color to rgb(68, 31, 132)
+            button.style.backgroundColor = new Color(68f / 255f, 31f / 255f, 132f / 255f);
+        }
+    }
+
+    private Button GetButtonForAvatarIndex(int avatarIndex)
+    {
         switch (avatarIndex)
         {
             case 0:
-                buttonSelect1.text = text;
-                break;
+                return buttonSelect1;
             case 1:
-                buttonSelect2.text = text;
-                break;
+                return buttonSelect2;
             case 2:
-                buttonSelect3.text = text;
-                break;
+                return buttonSelect3;
+            default:
+                return null;
         }
     }
 

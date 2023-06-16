@@ -11,9 +11,9 @@ public class MintNFT : MonoBehaviour
 
     string[] contractAddresses = 
     {
-        "0xca9785544566C10B83dF3e49dcc2BbE8EB203138",
-        "0x3084bfcE8877DB2D7C5A60A170649590b65c6D20",
-        "0x44E6A9A038d78dE2a3Dea7B9D5a3767A9BE67Ce7"
+        "0x6d0ddf5542cD11B9ee31c8974dD8106a25c3A192",
+        "0x9B8B3f0191a6f607f7b6df35Eb11Bd972Fb238A4",
+        "0x3da421b005d15B6dCDDd7d2bd1c9CC1876638cf7"
     };
 
     async public void mintItem(int avatarIndex)

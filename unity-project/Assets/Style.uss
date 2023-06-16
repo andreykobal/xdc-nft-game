@@ -21,6 +21,9 @@
     transition-duration: 0.25s;
     transition-timing-function: ease-in-out;
 }
+.button-buy:hover {
+    background-color: rgba(252, 15, 245, 0.75);
+}
 
 .image-bg-card {
     width: 300px;
@@ -32,5 +35,4 @@
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     -unity-background-scale-mode: scale-and-crop;
-    -unity-background-image-tint-color: rgb(149, 149, 149);
 }

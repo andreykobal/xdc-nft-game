@@ -1321,6 +1321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6a1afbd7dce21f4d8a51951a42237b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkNFTOwnership: {fileID: 2086237558}
 --- !u!4 &1967127068
 Transform:
   m_ObjectHideFlags: 0
