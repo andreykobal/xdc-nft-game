@@ -11,9 +11,12 @@ module.exports = {
     matic: {
       chainId: 137,
       url: `https://rpc-mainnet.maticvigil.com/v1/${maticUrl}`,
-      accounts: [privateKey],
-      gasPrice: 200000000000 // optional, you can remove this if you want Hardhat to estimate the gas price
-
+      accounts: [privateKey]
+    },
+    mantle: {
+      chainId: 5001,
+      url: `https://rpc.testnet.mantle.xyz/`,
+      accounts: [privateKey]
     }
   },
   //* Keep name as 'etherscan' to avoid errors.

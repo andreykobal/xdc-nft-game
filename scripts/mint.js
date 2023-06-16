@@ -1,14 +1,14 @@
 const hre = require("hardhat");
-const NUM_ITEMS = 1;
-const OWNER_ADDRESS = "0x3Ec643e0a163D1E80F8a090a61DfD00b9030e29c";
+const NUM_ITEMS = 5;
+const OWNER_ADDRESS = "0x98000edf79B0eb598085721D57d93B5865c87751";
 
 async function main() {
 
       const GameItem = await hre.ethers.getContractFactory("GameItem");
-      const gameItem = await GameItem.attach('0xe3515d63BCE48059146134176DBB18B9Db0D80D8')
+      const gameItem = await GameItem.attach('0x191F03d5c7f18C8Cce0f6105Ac3c5D7a95Bad747')
 
       for (var i = 1; i <= NUM_ITEMS; i++) {
-            await gameItem.mintItem(OWNER_ADDRESS, `https://bafkreiefuyqk4tsxw4fbs7v45lqh2iudr2bxvpinmsdqiv72sqbigs76qe.ipfs.nftstorage.link/`);
+            await gameItem.mintItem(OWNER_ADDRESS, `https://bafkreiczapdwomdlotjqt4yaojyizlgarn4kq57smi3ptkwn5lug5yz7yu.ipfs.nftstorage.link/`);
       }
 }
 
