@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class AvatarChanger : MonoBehaviour
 {
@@ -12,9 +14,9 @@ public class AvatarChanger : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        InstantiateAvatarModel(desiredAvatarIndex);
-        UpdateAvatar(desiredAvatarIndex);
-        SetActiveAvatarModel(desiredAvatarIndex);
+        InstantiateAvatarModel(UI.DesiredAvatarIndex);
+        UpdateAvatar(UI.DesiredAvatarIndex);
+        SetActiveAvatarModel(UI.DesiredAvatarIndex);
     }
 
     private void InstantiateAvatarModel(int avatarIndex)
@@ -46,5 +48,21 @@ public class AvatarChanger : MonoBehaviour
     {
         // Assign the new avatar to the Animator component
         animator.avatar = avatars[avatarIndex];
+    }
+
+    private void Update()
+    {
+        // Check for Escape key press using the new Input System
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            ReturnToPreviousScene();
+        }
+    }
+
+    private void ReturnToPreviousScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int previousSceneIndex = (currentSceneIndex - 1 + SceneManager.sceneCountInBuildSettings) % SceneManager.sceneCountInBuildSettings;
+        SceneManager.LoadScene(previousSceneIndex);
     }
 }

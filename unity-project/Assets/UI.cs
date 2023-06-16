@@ -4,6 +4,14 @@ using UnityEngine.UIElements;
 
 public class UI : MonoBehaviour
 {
+    private static int desiredAvatarIndex = 0;
+
+    public static int DesiredAvatarIndex
+    {
+        get { return desiredAvatarIndex; }
+        set { desiredAvatarIndex = value; }
+    }
+
     private void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
@@ -15,18 +23,21 @@ public class UI : MonoBehaviour
         buttonSelect1.clicked += () =>
         {
             Debug.Log("Selected Character 1");
+            DesiredAvatarIndex = 0;
             LoadNextScene();
         };
 
         buttonSelect2.clicked += () =>
         {
             Debug.Log("Selected Character 2");
+            DesiredAvatarIndex = 1;
             LoadNextScene();
         };
 
         buttonSelect3.clicked += () =>
         {
             Debug.Log("Selected Character 3");
+            DesiredAvatarIndex = 2;
             LoadNextScene();
         };
     }
