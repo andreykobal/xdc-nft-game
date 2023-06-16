@@ -1216,6 +1216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6137ea76a069bb4b818c2675993c8f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkNFTOwnership: {fileID: 2086237558}
+  mintNFT: {fileID: 1967127067}
 --- !u!1001 &1829820233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1363,6 +1365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34867075372df0647abd3a3e227ea353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ui: {fileID: 1809656050}
 --- !u!4 &2086237559
 Transform:
   m_ObjectHideFlags: 0

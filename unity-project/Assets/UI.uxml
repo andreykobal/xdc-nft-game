@@ -20,7 +20,7 @@
                 <ui:VisualElement name="Card" class="image-bg-card" style="background-image: resource(&apos;ReadyPlayerMe-Avatar (4)&apos;);">
                     <ui:Label text="Sakura Moonshadow" display-tooltip-when-elided="true" style="align-items: stretch; -unity-text-align: upper-center; font-size: 14px; margin-top: 10px;" />
                     <ui:Label text="NOT AVAILABLE" display-tooltip-when-elided="true" style="align-items: stretch; -unity-text-align: upper-center; font-size: 18px; -unity-font-style: bold;" />
-                    <ui:Button text="Buy" display-tooltip-when-elided="true" name="ButtonSelect2" focusable="true" class="button-select button-buy" />
+                    <ui:Button text="Buy" display-tooltip-when-elided="true" name="ButtonSelect3" focusable="true" class="button-select button-buy" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
