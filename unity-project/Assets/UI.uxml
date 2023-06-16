@@ -1,19 +1,26 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement name="Body" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; height: 100%; justify-content: center; background-image: resource(&apos;wallhaven-8x528o&apos;);">
+    <Style src="project://database/Assets/Style.uss?fileID=7433441132597879392&amp;guid=d3703abdee1b4264885f2f72ed1f9934&amp;type=3#Style" />
+    <ui:VisualElement name="Body" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; height: 100%; justify-content: center; background-image: resource(&apos;wallhaven-8x528o&apos;); color: rgb(255, 255, 255); -unity-font: resource(&apos;FlatSkin/Font/Roboto-Regular&apos;);">
         <ui:VisualElement name="Contatiner" style="flex-direction: row; flex-wrap: nowrap; flex-shrink: 1; justify-content: center;">
             <ui:VisualElement style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                <ui:VisualElement style="width: 300px; height: 300px; background-image: resource(&apos;ReadyPlayerMe-Avatar (2)&apos;); justify-content: flex-end; border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px;">
-                    <ui:Button text="Select" display-tooltip-when-elided="true" name="ButtonSelect1" />
+                <ui:VisualElement name="Card" class="image-bg-card">
+                    <ui:Label text="Sakura Moonshadow" display-tooltip-when-elided="true" style="align-items: stretch; -unity-text-align: upper-center; font-size: 14px; margin-top: 10px;" />
+                    <ui:Label text="NOT AVAILABLE" display-tooltip-when-elided="true" style="align-items: stretch; -unity-text-align: upper-center; font-size: 18px; -unity-font-style: bold;" />
+                    <ui:Button text="Buy" display-tooltip-when-elided="true" name="ButtonSelect1" focusable="true" class="button-select button-buy" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                <ui:VisualElement style="width: 300px; height: 300px; background-image: resource(&apos;ReadyPlayerMe-Avatar (3)&apos;); justify-content: flex-end; border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px;">
-                    <ui:Button text="Select" display-tooltip-when-elided="true" name="ButtonSelect2" />
+                <ui:VisualElement name="Card" class="image-bg-card" style="background-image: resource(&apos;ReadyPlayerMe-Avatar (3)&apos;);">
+                    <ui:Label text="Sakura Moonshadow" display-tooltip-when-elided="true" style="align-items: stretch; -unity-text-align: upper-center; font-size: 14px; margin-top: 10px;" />
+                    <ui:Label text="NOT AVAILABLE" display-tooltip-when-elided="true" style="align-items: stretch; -unity-text-align: upper-center; font-size: 18px; -unity-font-style: bold;" />
+                    <ui:Button text="Buy" display-tooltip-when-elided="true" name="ButtonSelect2" focusable="true" class="button-select button-buy" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                <ui:VisualElement style="width: 300px; height: 300px; background-image: resource(&apos;ReadyPlayerMe-Avatar (4)&apos;); justify-content: flex-end; border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px;">
-                    <ui:Button text="Select" display-tooltip-when-elided="true" name="ButtonSelect3" />
+                <ui:VisualElement name="Card" class="image-bg-card" style="background-image: resource(&apos;ReadyPlayerMe-Avatar (4)&apos;);">
+                    <ui:Label text="Sakura Moonshadow" display-tooltip-when-elided="true" style="align-items: stretch; -unity-text-align: upper-center; font-size: 14px; margin-top: 10px;" />
+                    <ui:Label text="NOT AVAILABLE" display-tooltip-when-elided="true" style="align-items: stretch; -unity-text-align: upper-center; font-size: 18px; -unity-font-style: bold;" />
+                    <ui:Button text="Buy" display-tooltip-when-elided="true" name="ButtonSelect2" focusable="true" class="button-select button-buy" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
