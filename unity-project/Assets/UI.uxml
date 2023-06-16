@@ -7,20 +7,20 @@
         <ui:VisualElement name="Contatiner" style="flex-direction: row; flex-wrap: nowrap; flex-shrink: 1; justify-content: center;">
             <ui:VisualElement style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                 <ui:VisualElement name="Card" class="image-bg-card">
-                    <ui:Label text="Isabella " display-tooltip-when-elided="true" style="align-items: stretch; -unity-text-align: upper-center; font-size: 14px; margin-top: 10px;" />
-                    <ui:Button text="Buy" display-tooltip-when-elided="true" name="ButtonSelect1" focusable="true" class="button-select button-buy" />
+                    <ui:Label text="Isabella " display-tooltip-when-elided="true" style="align-items: stretch; -unity-text-align: upper-center; font-size: 14px; margin-top: 10px; -unity-font-definition: resource(&apos;Roboto-Regular SDF&apos;);" />
+                    <ui:Button text="Buy" display-tooltip-when-elided="true" name="ButtonSelect1" focusable="true" class="button-select button-buy" style="-unity-font-definition: resource(&apos;Roboto-Bold SDF&apos;);" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                 <ui:VisualElement name="Card" class="image-bg-card" style="background-image: resource(&apos;ReadyPlayerMe-Avatar (3)&apos;);">
-                    <ui:Label text=" Kaito" display-tooltip-when-elided="true" style="align-items: stretch; -unity-text-align: upper-center; font-size: 14px; margin-top: 10px;" />
-                    <ui:Button text="Buy" display-tooltip-when-elided="true" name="ButtonSelect2" focusable="true" class="button-select button-buy" />
+                    <ui:Label text=" Kaito" display-tooltip-when-elided="true" style="align-items: stretch; -unity-text-align: upper-center; font-size: 14px; margin-top: 10px; -unity-font-definition: resource(&apos;Roboto-Regular SDF&apos;);" />
+                    <ui:Button text="Buy" display-tooltip-when-elided="true" name="ButtonSelect2" focusable="true" class="button-select button-buy" style="-unity-font-definition: resource(&apos;Roboto-Bold SDF&apos;);" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                 <ui:VisualElement name="Card" class="image-bg-card" style="background-image: resource(&apos;ReadyPlayerMe-Avatar (4)&apos;);">
-                    <ui:Label text="Zara " display-tooltip-when-elided="true" style="align-items: stretch; -unity-text-align: upper-center; font-size: 14px; margin-top: 10px;" />
-                    <ui:Button text="Buy" display-tooltip-when-elided="true" name="ButtonSelect3" focusable="true" class="button-select button-buy" />
+                    <ui:Label text="Zara " display-tooltip-when-elided="true" style="align-items: stretch; -unity-text-align: upper-center; font-size: 14px; margin-top: 10px; -unity-font-definition: resource(&apos;Roboto-Regular SDF&apos;);" />
+                    <ui:Button text="Buy" display-tooltip-when-elided="true" name="ButtonSelect3" focusable="true" class="button-select button-buy" style="-unity-font-definition: resource(&apos;Roboto-Bold SDF&apos;);" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

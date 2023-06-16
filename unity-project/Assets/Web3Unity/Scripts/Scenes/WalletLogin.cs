@@ -3,54 +3,56 @@ using Nethereum.Signer;
 using Nethereum.Util;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 using Web3Unity.Scripts.Library.Web3Wallet;
 
 public class WalletLogin : MonoBehaviour
 {
-    public Toggle rememberMe;
+    public UIDocument uiDocument; // Reference to the UIDocument of the new UI Toolkit
+    private Toggle rememberMe;
+    private Button loginButton;
     ProjectConfigScriptableObject projectConfigSO = null;
+
     private void Start()
     {
-        // change this if you are implementing your own sign in page
+        var root = uiDocument.rootVisualElement;
+
+        // Fetch UI Elements
+        rememberMe = root.Q<Toggle>("RememberMe");
+        loginButton = root.Q<Button>("Login");
+
+        // Setup Event Handlers
+        loginButton.clicked += OnLogin;
+
         Web3Wallet.url = "https://chainsafe.github.io/game-web3wallet/";
-        // loads the data saved from the editor config
         projectConfigSO = (ProjectConfigScriptableObject)Resources.Load("ProjectConfigData", typeof(ScriptableObject));
         PlayerPrefs.SetString("ProjectID", projectConfigSO.ProjectID);
         PlayerPrefs.SetString("ChainID", projectConfigSO.ChainID);
         PlayerPrefs.SetString("Chain", projectConfigSO.Chain);
         PlayerPrefs.SetString("Network", projectConfigSO.Network);
         PlayerPrefs.SetString("RPC", projectConfigSO.RPC);
-        // if remember me is checked, set the account to the saved account
+
         if (PlayerPrefs.HasKey("RememberMe") && PlayerPrefs.HasKey("Account"))
             if (PlayerPrefs.GetInt("RememberMe") == 1 && PlayerPrefs.GetString("Account") != "")
-                // move to next scene
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public async void OnLogin()
     {
-        // get current timestamp
         var timestamp = (int)System.DateTime.UtcNow.Subtract(new System.DateTime(1970, 1, 1)).TotalSeconds;
-        // set expiration time
         var expirationTime = timestamp + 60;
-        // set message
         var message = expirationTime.ToString();
-        // sign message
         var signature = await Web3Wallet.Sign(message);
-        // verify account
         var account = SignVerifySignature(signature, message);
         var now = (int)System.DateTime.UtcNow.Subtract(new System.DateTime(1970, 1, 1)).TotalSeconds;
-        // validate
+
         if (account.Length == 42 && expirationTime >= now)
         {
-            // save account
             PlayerPrefs.SetString("Account", account);
-            if (rememberMe.isOn)
+            if (rememberMe.value)
                 PlayerPrefs.SetInt("RememberMe", 1);
             else
                 PlayerPrefs.SetInt("RememberMe", 0);
-            print("Account: " + account);
-            // load next scene
+            Debug.Log("Account: " + account);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
