@@ -1,4 +1,4 @@
-//SPDX-License-Identifier: Unlicense
+// SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
@@ -216,7 +216,7 @@ contract GameItems is ERC1155, ContextMixin, NativeMetaTransaction {
     // Contract name
     string public name;
 
-    // Assign number to act as token ID for Coins, art etc.
+    // Assign number to act as token ID for Coins, art, etc.
     uint256 public constant COINS = 0;
     uint256 public constant ART = 1;
     // Example URI would be "https://sharpart-frontend.vercel.app/nft-metadata/jsons/{id}.json"
@@ -232,19 +232,13 @@ contract GameItems is ERC1155, ContextMixin, NativeMetaTransaction {
         return ContextMixin.msgSender();
     }
 
-    /**
-     * As another option for supporting trading without requiring meta transactions, override isApprovedForAll to whitelist OpenSea proxy accounts on Matic
-     */
-    function isApprovedForAll(address _owner, address _operator)
-        public
-        view
-        override
-        returns (bool isOperator)
-    {
-        if (_operator == address(0x207Fa8Df3a17D96Ca7EA4f2893fcdCb78a304101)) {
-            return true;
+    function batchMint(string[] memory tokenURIs) public {
+        uint256[] memory tokenIds = new uint256[](tokenURIs.length);
+        uint256[] memory amounts = new uint256[](tokenURIs.length);
+        for (uint256 i = 0; i < tokenURIs.length; i++) {
+            tokenIds[i] = i;
+            amounts[i] = 10;
         }
-
-        return ERC1155.isApprovedForAll(_owner, _operator);
+        _mintBatch(_msgSender(), tokenIds, amounts, "");
     }
 }
