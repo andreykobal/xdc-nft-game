@@ -64,5 +64,6 @@ public class AvatarChanger : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int previousSceneIndex = (currentSceneIndex - 1 + SceneManager.sceneCountInBuildSettings) % SceneManager.sceneCountInBuildSettings;
         SceneManager.LoadScene(previousSceneIndex);
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
     }
 }
