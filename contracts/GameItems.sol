@@ -241,4 +241,14 @@ contract GameItems is ERC1155, ContextMixin, NativeMetaTransaction {
         }
         _mintBatch(_msgSender(), tokenIds, amounts, "");
     }
+
+function getTotalBalance(address account) public view returns (uint256) {
+    uint256 totalBalance = 0;
+    uint256 totalSupply = balanceOf(account, 0);
+    for (uint256 i = 0; i < totalSupply; i++) {
+        totalBalance += balanceOf(account, i);
+    }
+    return totalBalance;
 }
+}
+
