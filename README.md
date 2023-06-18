@@ -11,7 +11,7 @@ To set up the Diamond Quest Adventure project, please follow these steps:
    git clone https://github.com/andreykobal/mantle-nft-game.git
    ```
 
-2. Open the Unity game project using Unity Hub or your preferred Unity editor.
+2. Open the Unity game project that is located in `/unity-project` using Unity Hub or your preferred Unity editor.
 
 3. Install the necessary dependencies and packages required for the project.
 
@@ -19,7 +19,7 @@ To set up the Diamond Quest Adventure project, please follow these steps:
 
 5. Set up the Metamask extension in your preferred browser and create a wallet.
 
-6. Configure the Metamask wallet by connecting it to the Mantle network and obtaining the necessary testnet tokens.
+6. Configure the Metamask wallet by connecting it to the Mantle network and obtaining the necessary testnet tokens [Mantle Quick Start](https://docs.mantle.xyz/network/introducing-mantle/quick-start). 
 
 7. Build and run the game to start playing Diamond Quest Adventure!
 
