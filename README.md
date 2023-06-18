@@ -8,7 +8,7 @@ To set up the Diamond Quest Adventure project, please follow these steps:
 
 1. Clone the repository to your local machine using the following command:
    ```
-   git clone [https://github.com/your-username/diamond-quest-adventure.git](https://github.com/andreykobal/mantle-nft-game/)
+   git clone https://github.com/andreykobal/mantle-nft-game.git
    ```
 
 2. Open the Unity game project using Unity Hub or your preferred Unity editor.
