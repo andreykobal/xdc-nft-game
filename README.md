@@ -235,4 +235,3 @@ We would like to express our gratitude to the open-source community for their va
 
 If you have any questions or encounter any issues, please don't hesitate to reach out. Enjoy playing Diamond Quest Adventure!
 
-*Note: The above readme.md is a fictional representation based on the provided information. Please customize it according to your project's requirements and provide accurate and detailed instructions.*
