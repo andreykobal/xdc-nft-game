@@ -31,8 +31,6 @@ To deploy the smart contracts using Hardhat, please follow these steps:
 * Add .env file with:
 ```
 MNEMONIC=privatekey. not the seedphrase
-MATIC_APP_ID=appid_from_maticvigil
-POLYGONSCAN=apikey_from_polygonscan
 ```
 * Edit the deploy script to pass in your name and ticker/uri depending on standard
 * Edit the contractUri method in the contract and add your OpenSea collection URI 
