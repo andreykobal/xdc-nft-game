@@ -1,5 +1,8 @@
 # Mantle NFTVerse: Diamond Quest Adventure
 
+![cover](https://github.com/andreykobal/mantle-nft-game/assets/19206978/282d7b02-26b4-4030-b4c2-1bcaceaa919e)
+
+
 Welcome to the **Mantle NFTVerse: Diamond Quest Adventure** GitHub repository! This repository contains the Unity game project along with the smart contracts used in the game. Diamond Quest Adventure is an exciting 3D game where players use NFT avatars, complete quests, collect diamonds, and explore magical worlds.
 
 ## Project Setup
