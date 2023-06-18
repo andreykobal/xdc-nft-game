@@ -36,7 +36,9 @@ MNEMONIC=privatekey. not the seedphrase
 * Edit the contractUri method in the contract and add your OpenSea collection URI 
 * Edit the mint script and add your token uri, contract address and account address of the account you want to mint to.
 * Deploy with `npx hardhat run --network mantle scripts/deploy721.js` for ERC-721
+* * Deploy with `npx hardhat run --network mantle scripts/deploy1155.js` for ERC-1155
 * Mint with `npx hardhat run --network mantle scripts/mint.js`
+* Check balance of ERC-1155 with `npx hardhat run --network mantle scripts/balances.js`
 
 Contract code inspired from Opensea: https://github.com/ProjectOpenSea/meta-transactions/blob/main/contracts/ERC721MetaTransactionMaticSample.sol
 This is for gas-less transactions when transferring assets. Users dont have to pay that extra gas, and get a better experience.
