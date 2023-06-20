@@ -5,10 +5,11 @@ const NUM_ITEMS = 1;
 async function main() {
 
       const GameItem = await hre.ethers.getContractFactory("GameItem");
-      const gameItem = await GameItem.attach('0xca9785544566C10B83dF3e49dcc2BbE8EB203138')
+      //https://bafkreibqmmz6wu73fzkgoxonv7ya7j2ij4eynczk6ko5x25qgqwlmhajje.ipfs.nftstorage.link/
+      const gameItem = await GameItem.attach('0xD837D98194884Bc4dEF43EEdc0aB4e22fA20F174')
 
       for (var i = 1; i <= NUM_ITEMS; i++) {
-            await gameItem.mintItem(`https://bafkreiczapdwomdlotjqt4yaojyizlgarn4kq57smi3ptkwn5lug5yz7yu.ipfs.nftstorage.link/`, {value: hre.ethers.utils.parseEther("0.5")});
+            await gameItem.mintItem(`https://bafkreiejb54enscvzqlrm4dfqrefiji2x4vmdzduaemfaav3iwgvvt6fk4.ipfs.nftstorage.link/`, {value: hre.ethers.utils.parseEther("0.5")});
       }
 }
 

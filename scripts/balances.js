@@ -2,9 +2,9 @@ const hre = require("hardhat");
 
 async function main() {
   const GameItem = await hre.ethers.getContractFactory("GameItems");
-  const gameItem = await GameItem.attach('0x6721De8B1865A6cD98C64165305611B1f28B95e4');
+  const gameItem = await GameItem.attach('0xd68B7C666b269B3FC9daAc7a3a446bE32999920E');
 
-  const account = "0x98000edf79B0eb598085721D57d93B5865c87751";
+  const account = "0x204f9781DDcafB4a844fd12250dB15183C67cACB";
   const totalBalance = await gameItem.getTotalBalance(account);
 
   console.log(`Total balance for ${account}: ${totalBalance}`);

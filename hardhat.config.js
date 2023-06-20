@@ -17,6 +17,11 @@ module.exports = {
       chainId: 5001,
       url: `https://rpc.testnet.mantle.xyz/`,
       accounts: [privateKey]
+    },
+    skaleTestnet: {
+      chainId: 1351057110,
+      url: `https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix      `,
+      accounts: [privateKey]
     }
   },
   //* Keep name as 'etherscan' to avoid errors.

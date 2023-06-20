@@ -58,9 +58,9 @@ public class UI : MonoBehaviour
         
 
         // Begin checking NFT balances on start
-        checkNFTOwnership.CheckNFTBalance("0x6d0ddf5542cD11B9ee31c8974dD8106a25c3A192", 0);
-        checkNFTOwnership.CheckNFTBalance("0x9B8B3f0191a6f607f7b6df35Eb11Bd972Fb238A4", 1);
-        checkNFTOwnership.CheckNFTBalance("0x3da421b005d15B6dCDDd7d2bd1c9CC1876638cf7", 2);
+        checkNFTOwnership.CheckNFTBalance("0xD837D98194884Bc4dEF43EEdc0aB4e22fA20F174", 0);
+        checkNFTOwnership.CheckNFTBalance("0xD837D98194884Bc4dEF43EEdc0aB4e22fA20F174", 1);
+        checkNFTOwnership.CheckNFTBalance("0xD837D98194884Bc4dEF43EEdc0aB4e22fA20F174", 2);
         
     }
 

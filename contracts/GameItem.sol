@@ -216,7 +216,7 @@ contract NativeMetaTransaction is EIP712Base {
 contract GameItem is ERC721URIStorage, ContextMixin, NativeMetaTransaction, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
-    uint256 public mintingFee = 0.5 ether; // 0.5 ETH in Wei
+    uint256 public mintingFee = 0.0005 ether; // 0.5 ETH in Wei
 
     mapping(address => uint256) private _balances;
 
