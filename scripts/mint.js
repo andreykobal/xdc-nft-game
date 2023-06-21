@@ -1,21 +1,25 @@
 const hre = require("hardhat");
 const NUM_ITEMS = 1;
-//const OWNER_ADDRESS = "0x98000edf79B0eb598085721D57d93B5865c87751";
 
 async function main() {
+  const [signer] = await hre.ethers.getSigners();
+  //console.log("Signer address:", signer.address);
+  const signerBalance = await hre.ethers.provider.getBalance(signer.address);
+  //console.log("Signer balance:", hre.ethers.utils.formatEther(signerBalance));
 
-      const GameItem = await hre.ethers.getContractFactory("GameItem");
-      //https://bafkreibqmmz6wu73fzkgoxonv7ya7j2ij4eynczk6ko5x25qgqwlmhajje.ipfs.nftstorage.link/
-      const gameItem = await GameItem.attach('0xD837D98194884Bc4dEF43EEdc0aB4e22fA20F174')
+  const GameItem = await hre.ethers.getContractFactory("GameItem");
+  //console.log(GameItem);
 
-      for (var i = 1; i <= NUM_ITEMS; i++) {
-            await gameItem.mintItem(`https://bafkreiejb54enscvzqlrm4dfqrefiji2x4vmdzduaemfaav3iwgvvt6fk4.ipfs.nftstorage.link/`, {value: hre.ethers.utils.parseEther("0.5")});
-      }
+  const gameItem = await GameItem.attach("0x643D5cf6fdd9Faa3825e194e925D07E290E993D2");
+
+  for (var i = 1; i <= NUM_ITEMS; i++) {
+    await gameItem.mintItem("https://bafkreigjdlompxctswi2gxcsb6eyutj7xint3wpqvtnyvv7f3ya7avj3hi.ipfs.nftstorage.link/");
+  }
 }
 
 main()
-      .then(() => process.exit(0))
-      .catch((error) => {
-            console.error(error);
-            process.exit(1);
-      });
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });

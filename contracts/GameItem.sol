@@ -2,6 +2,7 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
@@ -213,11 +214,12 @@ contract NativeMetaTransaction is EIP712Base {
     }
 }
 
-contract GameItem is ERC721URIStorage, ContextMixin, NativeMetaTransaction, Ownable {
+contract GameItem is ERC721Enumerable, ContextMixin, NativeMetaTransaction, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
-    uint256 public mintingFee = 0.0005 ether; // 0.5 ETH in Wei
+    uint256 public mintingFee = 0.0005 ether;
 
+    mapping(uint256 => string) private _tokenURIs; 
     mapping(address => uint256) private _balances;
 
     constructor(string memory name_, string memory symbol_) ERC721(name_, symbol_) {
@@ -246,9 +248,7 @@ contract GameItem is ERC721URIStorage, ContextMixin, NativeMetaTransaction, Owna
         return ERC721.isApprovedForAll(_owner, _operator);
     }
 
-    function mintItem(string memory tokenURI) public payable returns (uint256) {
-        require(msg.value >= mintingFee, "Insufficient ETH sent for minting");
-
+    function mintItem(string memory tokenURI) public returns (uint256) {
         _tokenIds.increment();
         uint256 newItemId = _tokenIds.current();
         _mint(msg.sender, newItemId);
@@ -259,7 +259,34 @@ contract GameItem is ERC721URIStorage, ContextMixin, NativeMetaTransaction, Owna
         return newItemId;
     }
 
+
+    function _setTokenURI(uint256 tokenId, string memory _tokenURI) internal virtual {
+        _tokenURIs[tokenId] = _tokenURI;
+    }
+
+    function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
+        require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
+        return _tokenURIs[tokenId];
+    }
+
     function getBalance(address wallet) public view returns (uint256) {
         return _balances[wallet];
     }
+
+function getTokensOfOwner(address owner) public view returns (string[] memory) {
+    uint256 tokenCount = balanceOf(owner);
+
+    if (tokenCount == 0) {
+        // Return an empty array
+        return new string[](0);
+    } else {
+        string[] memory tokens = new string[](tokenCount);
+        for (uint256 i = 0; i < tokenCount; i++) {
+            tokens[i] = tokenURI(tokenOfOwnerByIndex(owner, i));
+        }
+        return tokens;
+    }
 }
+
+}
+
