@@ -39,7 +39,7 @@ MNEMONIC=privatekey. not the seedphrase
 * Edit the contractUri method in the contract and add your OpenSea collection URI 
 * Edit the mint script and add your token uri, contract address and account address of the account you want to mint to.
 * Deploy with `npx hardhat run --network scaleTestnet scripts/deploy721.js` for ERC-721
-* * Deploy with `npx hardhat run --network scaleTestnet scripts/deploy1155.js` for ERC-1155
+* Deploy with `npx hardhat run --network scaleTestnet scripts/deploy1155.js` for ERC-1155
 * Mint 721 with `npx hardhat run --network scaleTestnet scripts/mint.js`
 * Mint 1155 with `npx hardhat run --network scaleTestnet scripts/mint1155.js`
 * Check balance of ERC-1155 with `npx hardhat run --network scaleTestnet scripts/balances.js`
