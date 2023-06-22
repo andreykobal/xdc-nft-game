@@ -36,7 +36,7 @@ To deploy the smart contracts using Hardhat, please follow these steps:
 MNEMONIC=privatekey. not the seedphrase
 ```
 * Edit the deploy script to pass in your name and ticker/uri depending on standard
-* Edit the contractUri method in the contract and add your OpenSea collection URI 
+* Edit the contractUri method in the contract and add your collection metadata URI 
 * Edit the mint script and add your token uri, contract address and account address of the account you want to mint to.
 * Deploy with `npx hardhat run --network scaleTestnet scripts/deploy721.js` for ERC-721
 * Deploy with `npx hardhat run --network scaleTestnet scripts/deploy1155.js` for ERC-1155
