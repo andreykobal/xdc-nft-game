@@ -30,7 +30,7 @@ public class CheckNFTOwnership : MonoBehaviour
         avatarBalances[avatarIndex] = int.Parse(calldata[0].ToString());
         print("ERC-721 Token Balance for avatar " + (avatarIndex + 1) + ": " + avatarBalances[avatarIndex]);
 
-        string buttonText = avatarBalances[avatarIndex] > 0 ? "Select" : "Buy 0.5 $MNT";
+        string buttonText = avatarBalances[avatarIndex] > 0 ? "Select" : "Mint";
         ui.UpdateButtonLabel(avatarIndex, buttonText);
     }
 

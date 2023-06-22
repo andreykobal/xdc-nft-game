@@ -54,13 +54,13 @@ public class UI : MonoBehaviour
         balance = root.Q<Label>("Balance");
 
         wallet.text = formattedString;
-        balance.text = etherValue.ToString("0.0");
+        balance.text = etherValue.ToString("0.0000");
         
 
         // Begin checking NFT balances on start
-        checkNFTOwnership.CheckNFTBalance("0xD837D98194884Bc4dEF43EEdc0aB4e22fA20F174", 0);
-        checkNFTOwnership.CheckNFTBalance("0xD837D98194884Bc4dEF43EEdc0aB4e22fA20F174", 1);
-        checkNFTOwnership.CheckNFTBalance("0xD837D98194884Bc4dEF43EEdc0aB4e22fA20F174", 2);
+        checkNFTOwnership.CheckNFTBalance("0x643D5cf6fdd9Faa3825e194e925D07E290E993D2", 0);
+        checkNFTOwnership.CheckNFTBalance("0xEDD3E9751334eC1E4605DC02a0484D6acFe0F69e", 1);
+        checkNFTOwnership.CheckNFTBalance("0xEDD3E9751334eC1E4605DC02a0484D6acFe0F69e", 2);
         
     }
 
@@ -98,7 +98,7 @@ public class UI : MonoBehaviour
         Button button = GetButtonForAvatarIndex(avatarIndex);
         button.text = text;
 
-         if (text == "Buy 0.5 $MNT")
+         if (text == "Mint")
         {
             // Set the background color to rgb(68, 31, 132)
             button.style.backgroundColor = new Color(68f / 255f, 31f / 255f, 132f / 255f);
