@@ -264,8 +264,9 @@ public class GetTokensMetadata : MonoBehaviour
 }
 ```
 
-### ClaimController
+### ClaimController.cs
 
+Distributing sFUEL to users is an important part of building on SKALE.
 Docs: [sFUEL Distribution](https://docs.skale.network/develop/sfuel/sfuel-distribution)
 
 ```csharp
