@@ -1,9 +1,9 @@
-# Mantle NFTVerse: Diamond Quest Adventure
+# SKALE OpenVerse: Adventure Game Template With NFT, SFT, AI
 
-![cover-2](https://github.com/andreykobal/mantle-nft-game/assets/19206978/78377529-e6c6-42bb-9b4f-91e32b1bed0c)
+![logo-skale](https://github.com/andreykobal/skale-nft-game/assets/19206978/107f80e6-670c-480c-9815-fe8a736f2642)
 
 
-Welcome to the **Mantle NFTVerse: Diamond Quest Adventure** GitHub repository! This repository contains the Unity game project along with the smart contracts used in the game. Diamond Quest Adventure is an exciting 3D game where players use NFT avatars, complete quests, collect diamonds, and explore magical worlds.
+Welcome to the **SKALE OpenVerse: Diamond Quest Adventure** GitHub repository! This repository contains the Unity game project along with the smart contracts used in the game. Diamond Quest Adventure is an exciting 3D game where players use NFT avatars, complete quests, collect diamonds, and explore magical worlds.
 
 ## Project Setup
 
@@ -11,7 +11,7 @@ To set up the Diamond Quest Adventure project, please follow these steps:
 
 1. Clone the repository to your local machine using the following command:
    ```
-   git clone https://github.com/andreykobal/mantle-nft-game.git
+   git clone https://github.com/andreykobal/skale-nft-game.git
    ```
 
 2. Open the Unity game project that is located in `/unity-project` using Unity Hub or your preferred Unity editor.
@@ -22,7 +22,7 @@ To set up the Diamond Quest Adventure project, please follow these steps:
 
 5. Set up the Metamask extension in your preferred browser and create a wallet.
 
-6. Configure the Metamask wallet by connecting it to the Mantle network and obtaining the necessary testnet tokens [Mantle Quick Start](https://docs.mantle.xyz/network/introducing-mantle/quick-start). 
+6. Configure the Metamask wallet by connecting it to the SKALE network and obtaining the necessary testnet tokens [SKALE Quick Start](https://docs.skale.network/develop/). 
 
 7. Build and run the game to start playing Diamond Quest Adventure!
 
@@ -38,10 +38,13 @@ MNEMONIC=privatekey. not the seedphrase
 * Edit the deploy script to pass in your name and ticker/uri depending on standard
 * Edit the contractUri method in the contract and add your OpenSea collection URI 
 * Edit the mint script and add your token uri, contract address and account address of the account you want to mint to.
-* Deploy with `npx hardhat run --network mantle scripts/deploy721.js` for ERC-721
-* * Deploy with `npx hardhat run --network mantle scripts/deploy1155.js` for ERC-1155
-* Mint with `npx hardhat run --network mantle scripts/mint.js`
-* Check balance of ERC-1155 with `npx hardhat run --network mantle scripts/balances.js`
+* Deploy with `npx hardhat run --network scaleTestnet scripts/deploy721.js` for ERC-721
+* * Deploy with `npx hardhat run --network scaleTestnet scripts/deploy1155.js` for ERC-1155
+* Mint 721 with `npx hardhat run --network scaleTestnet scripts/mint.js`
+* Mint 1155 with `npx hardhat run --network scaleTestnet scripts/mint1155.js`
+* Check balance of ERC-1155 with `npx hardhat run --network scaleTestnet scripts/balances.js`
+* Get metadata of ERC-721 with `npx hardhat run --network scaleTestnet scripts/getTokensOfOwner.js`
+
 
 Contract code inspired from Opensea: https://github.com/ProjectOpenSea/meta-transactions/blob/main/contracts/ERC721MetaTransactionMaticSample.sol
 This is for gas-less transactions when transferring assets. Users dont have to pay that extra gas, and get a better experience.
@@ -93,14 +96,14 @@ Here are some C# code highlights from the Diamond Quest Adventure project:
 ```csharp
 async public void mintItem(int avatarIndex)
 {
-    string chainId = "5001";
+    string chainId = "1351057110";
     var tokenURI = "https://bafkreiczapdwomdlotjqt4yaojyizlgarn4kq57smi3ptkwn5lug5yz7yu.ipfs.nftstorage.link/";
 
     string contractAbi = "";
     string contractAddress = contractAddresses[avatarIndex];
     string method = "mintItem";
     
-    var provider = new JsonRpcProvider("https://rpc.testnet.mantle.xyz/");
+    var provider = new JsonRpcProvider("https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix");
     var contract = new Contract(contractAbi, contractAddress, provider);
     Debug.Log("Contract: " + contract);
     
@@ -125,7 +128,7 @@ async public void CheckNFTBalance(string contractAddress, int avatarIndex)
     string contractAbi = "";
     string method = "getBalance";
 
-    var provider = new JsonRpcProvider("https://rpc.testnet.mantle.xyz/");
+    var provider = new JsonRpcProvider("https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix");
     var contract = new Contract(contractAbi, contractAddress, provider);
     Debug.Log("Contract: " + contract);
 
@@ -156,7 +159,7 @@ async public void Check1155TotalBalance()
     string method = "getTotalBalance";
     
     var walletAddress = PlayerPrefs.GetString("Account");
-    var provider = new JsonRpcProvider("https://rpc.testnet.mantle.xyz/");
+    var provider = new JsonRpcProvider("https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix");
     var contract = new Contract(contractAbi, contractAddress, provider);
     var calldata = await contract.Call(method, new object[]
     {
@@ -187,7 +190,7 @@ private async void Start()
 
 async public void Mint1155Diamonds()
 {
-    string chainId = "5001";
+    string chainId = "1351057110";
     string contractAddress = "0x6721De8B1865A6cD98C64165305611B1f28B95e4";
     string value = "0";
     string abi = "";
@@ -211,6 +214,97 @@ async public void Mint1155Diamonds()
     }
 }
 ```
+
+### GetTokensMetadata.cs
+
+```csharp
+public class GetTokensMetadata : MonoBehaviour
+{
+    async public void CheckTokensOwned()
+    {
+        // ABI for GameItem contract
+        string contractAbi = "YOUR_CONTRACT_ABI";
+        // address of contract
+        string contractAddress = "0x643D5cf6fdd9Faa3825e194e925D07E290E993D2"; // Replace with your contract's address.
+        string method = "getTokensOfOwner";
+        // you can use this to create a provider for hardcoding and parse this instead of rpc get instance
+        var provider = new JsonRpcProvider("https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix");
+        var contract = new Contract(contractAbi, contractAddress, provider);
+        Debug.Log("Contract: " + contract);
+
+        // address of the owner whose tokens we want to check
+        string ownerAddress = PlayerPrefs.GetString("Account"); // Replace with the address of the owner whose tokens you want to check.
+
+    var calldata = await contract.Call(method, new object[]
+    {
+        ownerAddress // parameter for the getTokensOfOwner function
+    });
+
+    try
+    {
+        List<string> tokenURIs = calldata[0] as List<string>;
+
+        if(tokenURIs != null)
+        {
+            foreach (string tokenURI in tokenURIs)
+            {
+                print("Token URI: " + tokenURI);
+            }
+        }
+        else
+        {
+            print("Could not cast returned data to List<string>.");
+        }
+    }
+    catch(Exception e)
+    {
+        print("Exception when casting: " + e.Message);
+    }
+    }
+}
+```
+
+### ClaimController
+
+Docs: [sFUEL Distribution](https://docs.skale.network/develop/sfuel/sfuel-distribution)
+
+```csharp
+public class ClaimController : MonoBehaviour
+{
+    private const string BaseUrl = "https://skale-sfuel-77334b37033d.herokuapp.com";
+
+    private void Start() {
+        string currentAccount = PlayerPrefs.GetString("Account");
+        Claim(currentAccount);
+    }
+
+    public void Claim(string ethereumAddress)
+    {
+        string url = $"{BaseUrl}/claim/{ethereumAddress}";
+        StartCoroutine(SendRequest(url));
+    }
+
+    private IEnumerator SendRequest(string url)
+    {
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
+        {
+            yield return webRequest.SendWebRequest();
+
+            if (webRequest.result == UnityWebRequest.Result.Success)
+            {
+                Debug.Log("sFuel Claim Request successful");
+                Debug.Log(webRequest.downloadHandler.text);
+            }
+            else
+            {
+                Debug.LogError("sFuel Claim Request failed");
+                Debug.LogError(webRequest.error);
+            }
+        }
+    }
+}
+```
+
 
 ## Contributing
 
