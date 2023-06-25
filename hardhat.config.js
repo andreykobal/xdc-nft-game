@@ -22,11 +22,40 @@ module.exports = {
       chainId: 1351057110,
       url: `https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix      `,
       accounts: [privateKey]
+    },
+      mymetaverse: {
+      chainId: 1687098052079624,
+      url: `https://mymetaverse-1687098052079624-1.jsonrpc.sp1.sagarpc.io/`,
+      accounts: [privateKey]
+    },
+    gnosis: {
+      url: "https://rpc.gnosischain.com",
+      accounts: [privateKey],
+    },
+    chiado: {
+      url: "https://rpc.chiadochain.net",
+      gasPrice: 1000000000,
+      accounts: [privateKey],
+    },
+    testnetbsc: {
+      chainId: 97,
+      url: "https://data-seed-prebsc-1-s1.bnbchain.org:8545",
+      accounts: [privateKey],
+    },
+    auroraTestnet: {
+      chainId: 1313161555,
+      url: "https://testnet.aurora.dev",
+      accounts: [privateKey],
+    },
+    meterTestnet: {
+      chainId: 83,
+      url: "https://rpctest.meter.io/",
+      accounts: [privateKey],
     }
   },
   //* Keep name as 'etherscan' to avoid errors.
   etherscan: {
     url: 'https://polygonscan.com/',
-    apiKey: polyScan
+    apiKey: polyScan,
   }
 };
