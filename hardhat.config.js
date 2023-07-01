@@ -51,7 +51,20 @@ module.exports = {
       chainId: 83,
       url: "https://rpctest.meter.io/",
       accounts: [privateKey],
+    },
+    xinfin: {
+      url: process.env.XINFIN_NETWORK_URL,
+      accounts: [privateKey],
+    },
+     apothem: {
+      url: process.env.APOTHEM_NETWORK_URL,
+      accounts: [privateKey]
+    },
+    goerli: {
+      url: "https://rpc.ankr.com/eth_goerli",
+      accounts: [privateKey]   
     }
+
   },
   //* Keep name as 'etherscan' to avoid errors.
   etherscan: {
