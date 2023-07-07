@@ -11,7 +11,7 @@ To set up the Adventure Game Template project, please follow these steps:
 
 1. Clone the repository to your local machine using the following command:
    ```
-   git clone https://github.com/andreykobal/skale-nft-game.git
+   git clone https://github.com/andreykobal/xdc-nft-game.git
    ```
 
 2. Open the Unity game project that is located in `/unity-project` using Unity Hub or your preferred Unity editor.
@@ -22,7 +22,7 @@ To set up the Adventure Game Template project, please follow these steps:
 
 5. Set up the Metamask extension in your preferred browser and create a wallet.
 
-6. Configure the Metamask wallet by connecting it to the SKALE network and obtaining the necessary testnet tokens [SKALE Quick Start](https://docs.skale.network/develop/). 
+6. Configure the Metamask wallet by connecting it to the XDC network and obtaining the necessary testnet tokens [XDC Quick Start](https://docs.xdc.org/). 
 
 7. Build and run the game to start playing Adventure Game Template!
 
