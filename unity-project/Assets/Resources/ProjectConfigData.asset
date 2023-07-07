@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ProjectConfigData
   m_EditorClassIdentifier: 
   projectID: d0c9c05b-cbab-4057-a272-78cd759dcfc5
-  chainID: 1351057110
-  chain: staging-fast-active-bellatrix
+  chainID: 51
+  chain: Apothem
   network: testnet
-  rpc: https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix
+  rpc: https://erpc.apothem.network
