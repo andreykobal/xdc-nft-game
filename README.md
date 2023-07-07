@@ -22,7 +22,7 @@ To set up the Adventure Game Template project, please follow these steps:
 
 5. Set up the Metamask extension in your preferred browser and create a wallet.
 
-6. Configure the Metamask wallet by connecting it to the XDC network and obtaining the necessary testnet tokens [XDC Quick Start](https://docs.xdc.org/). 
+6. Configure the Metamask wallet by connecting it to the XDC network and obtaining the necessary testnet tokens [XDC Documentation](https://docs.xdc.org/). 
 
 7. Build and run the game to start playing Adventure Game Template!
 
